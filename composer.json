@@ -1,7 +1,7 @@
 {
     "name": "os2forms/os2forms_kl_forms",
     "description": "OS2Forms KL forms",
-    "type": "drupal-custom-module",
+    "type": "drupal-module",
     "license": "MIT",
     "authors": [
         {

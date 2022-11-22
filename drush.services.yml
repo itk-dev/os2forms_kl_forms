@@ -1,7 +1,7 @@
 services:
   Drupal\os2forms_kl_forms\Commands\Commands:
     arguments:
-      - '@Drupal\os2forms_kl_forms\Builder'
-      - '@entity_type.manager'
+      - '@Drupal\os2forms_kl_forms\Webform\Builder'
+      - '@Drupal\os2forms_kl_forms\Webform\Helper'
     tags:
       - { name: drush.command }

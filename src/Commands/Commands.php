@@ -5,12 +5,10 @@
 
 namespace Drupal\os2forms_kl_forms\Commands;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Url;
-use Drupal\os2forms_kl_forms\Builder;
-use Drupal\webform\Entity\Webform;
-use Drupal\webform\WebformEntityStorage;
+use Drupal\os2forms_kl_forms\Webform\Builder;
+use Drupal\os2forms_kl_forms\Webform\Helper;
 use Drush\Commands\DrushCommands;
 
 /**
@@ -20,23 +18,23 @@ class Commands extends DrushCommands {
   /**
    * The builder.
    *
-   * @var \Drupal\os2forms_kl_forms\Builder
+   * @var \Drupal\os2forms_kl_forms\Webform\Builder
    */
   private Builder $builder;
 
   /**
-   * The webform entity storage.
+   * The helper.
    *
-   * @var \Drupal\webform\WebformEntityStorage
+   * @var \Drupal\os2forms_kl_forms\Webform\Helper
    */
-  private WebformEntityStorage $webformStorage;
+  private Helper $helper;
 
   /**
    * The constructor.
    */
-  public function __construct(Builder $builder, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(Builder $builder, Helper $helper) {
     $this->builder = $builder;
-    $this->webformStorage = $entityTypeManager->getStorage('webform');
+    $this->helper = $helper;
   }
 
   /**
@@ -52,7 +50,7 @@ class Commands extends DrushCommands {
    * @phpstan-param array<string, mixed> $options
    */
   public function render(string $url, string $elementName = NULL, array $options = []): void {
-    $data = $this->builder->build($url, $elementName);
+    $data = $this->builder->build($url, $elementName, $options);
     $this->output()->write(Yaml::encode($data));
   }
 
@@ -79,52 +77,19 @@ class Commands extends DrushCommands {
     'title' => NULL,
     'category' => 'KL',
   ]): void {
-    $id = strtolower($id);
-
-    $webform = $this->webformStorage->load($id);
-    $created = FALSE;
+    $webform = $this->helper->loadWebform($id);
+    $isNewWebform = NULL === $webform;
     if (NULL !== $webform) {
       $question = sprintf('Webform with id %s already exists. Update it?', $webform->id());
       if (!$this->confirm($question, TRUE)) {
         return;
       }
     }
-    else {
-      $settings = []
-        + Webform::getDefaultSettings();
 
-      $webform = Webform::create([
-        'id' => $id,
-        'title' => $id,
-        'settings' => $settings,
-      ]);
-      $created = TRUE;
-    }
-
-    $form = $this->builder->build($url, $elementName);
-    if (isset($form['elements'])) {
-      $webform->set('elements', Yaml::encode($form['elements']));
-    }
-
-    $title = $form['name'] ?? $id;
-    if (NULL !== $title) {
-      $webform->set('title', $title);
-    }
-
-    $description = $form['doc'] ?? NULL;
-    if (NULL !== $description) {
-      $webform->set('description', $description);
-    }
-
-    $options = array_filter($options);
-    foreach ($options as $name => $value) {
-      $webform->set($name, $value);
-    }
-
-    $webform->save();
+    $webform = $this->helper->generate($id, $url, $elementName, $options);
 
     $this->output()->writeln([
-      $created
+      $isNewWebform
         ? sprintf('Webform %s (%s) created', $webform->get('title'), $webform->id())
         : sprintf('Webform %s (%s) updated', $webform->get('title'), $webform->id()),
       sprintf('Show: %s', Url::fromRoute('entity.webform.canonical', ['webform' => $webform->id()], ['absolute' => TRUE])->toString()),

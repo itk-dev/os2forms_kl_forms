@@ -1,5 +1,11 @@
 # OS2Forms KL forms
 
+## Drush commands
+
+```sh
+drush --uri=… os2forms-kl-forms:generate kl_PN151 …/skemapakke/profile/KLB_ApplicationToCareForCloselyConnectedPersons_PN151.xsd --title='KLB_ApplicationToCareForCloselyConnectedPersons_PN151'
+```
+
 ## Coding standards
 
 ```sh
