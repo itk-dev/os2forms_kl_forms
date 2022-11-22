@@ -18,6 +18,13 @@ use GoetasWebservices\XML\XSDReader\SchemaReader;
  * The builder.
  */
 class Builder {
+  /**
+   * Webform elements indexed by webform keys.
+   *
+   * @var array
+   * @phpstan-var array<string, ElementItem>
+   */
+  private array $elements;
 
   /**
    * Build form.
@@ -28,6 +35,7 @@ class Builder {
   public function build(string $url, string $elementName = NULL, array $options = []): array {
     $reader = new SchemaReader();
     $schema = $reader->readFile($url);
+    $this->elements = [];
 
     if (NULL !== $elementName) {
       $element = $schema->getElement($elementName);
@@ -104,12 +112,10 @@ class Builder {
    *
    * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem $elementItem
    *   The element item.
-   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem[] $rootPath
-   *   The root path.
    *
    * @phpstan-return array<string, mixed>
    */
-  private function buildElementItem(ElementItem $elementItem, array $rootPath = []): array {
+  private function buildElementItem(ElementItem $elementItem): array {
     $title = NULL;
     if ($elementItem instanceof SchemaItem) {
       $title = $elementItem->getDoc();
@@ -118,7 +124,7 @@ class Builder {
       $title = $elementItem->getName();
     }
     $item = [
-      'key' => $this->computeElementKey($elementItem, $rootPath),
+      'key' => $this->computeElementKey($elementItem),
       '#title' => $title,
     ];
 
@@ -138,15 +144,13 @@ class Builder {
     if ($type instanceof ComplexType) {
       $item['#type'] = 'webform_section';
 
-      array_push($rootPath, $elementItem);
       foreach ($type->getElements() as $element) {
         assert($elementItem instanceof ElementItem);
-        $element = $this->buildElementItem($element, $rootPath);
+        $element = $this->buildElementItem($element);
         $key = $element['key'];
         unset($element['key']);
         $item[$key] = $element;
       }
-      array_pop($rootPath);
     }
     elseif ($type instanceof ComplexTypeSimpleContent) {
     }
@@ -167,28 +171,49 @@ class Builder {
    *
    * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem $element
    *   The element item.
-   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem[] $rootPath
-   *   The root path.
    */
-  private function computeElementKey(ElementItem $element, array $rootPath): string {
-    $names = [$element->getName(), ...array_map(static function (ElementItem $element) {
-      return $element->getName();
-    }, $rootPath),
-    ];
-    $key = implode('_', $names);
+  private function computeElementKey(ElementItem $element): string {
+    $key = $element->getName();
 
     // Convert to snake_case.
     // @see https://stackoverflow.com/a/19533226/2502647
     $key = ltrim(strtolower(preg_replace('/[A-Z]([A-Z](?![a-z]))*/', '_$0', $key)), '_');
 
-    // Replace sequences of disallowed characters to underscore.
+    // Replace sequences of disallowed characters with a single underscore.
     $key = preg_replace('/[^a-z0-9_]+/', '_', $key);
 
+    // A webform element key can be at most 64 characters long.
     $maxLength = 64;
-    if (strlen($key) > $maxLength) {
-      $id = uniqid();
-      $key = substr($key, 0, $maxLength - strlen($id) - 1) . '_' . $id;
+    // @todo Find a proper name for this variable.
+    $numericSuffixLength = 2;
+    if (strlen($key) <= $maxLength - $numericSuffixLength - 1 && isset($this->elements[$key])) {
+      for ($i = 1, $max = pow(10, $numericSuffixLength); $i < $max; $i++) {
+        $newKey = $key . '_' . str_pad(strval($i), $numericSuffixLength, '0', STR_PAD_LEFT);
+        if (!isset($this->elements[$newKey])) {
+          $key = $newKey;
+          break;
+        }
+      }
     }
+
+    if (strlen($key) > $maxLength) {
+      $count = 0;
+      $maxCount = 10;
+      $id = uniqid();
+      $newKey = substr($key, 0, $maxLength - strlen($id) - 1) . '_' . $id;
+      while ($count < $maxCount && isset($this->elements[$newKey])) {
+        $id = uniqid();
+        $newKey = substr($key, 0, $maxLength - strlen($id) - 1) . '_' . $id;
+        $count++;
+      }
+      $key = $newKey;
+    }
+
+    if (isset($this->elements[$key])) {
+      throw new BuildException(sprintf('Cannot compute unique key for element %s', $element->getName()));
+    }
+
+    $this->elements[$key] = $element;
 
     return $key;
   }
