@@ -1,0 +1,55 @@
+{
+    "name": "os2forms/os2forms_kl_forms",
+    "description": "OS2Forms KL forms",
+    "type": "drupal-custom-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikkel Ricky",
+            "email": "rimi@aarhus.dk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "drupal/webform": "^6",
+        "drush/drush": "^10",
+        "goetas-webservices/xsd-reader": "^0.3.10"
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "mglaman/drupal-check": "^1.4"
+    },
+    "scripts": {
+        "code-analysis/drupal-check": [
+            "drupal-check --deprecations --analysis --exclude-dir=vendor *.* src"
+        ],
+        "code-analysis": [
+            "@code-analysis/drupal-check"
+        ],
+        "coding-standards-check/phpcs": [
+            "phpcs --standard=phpcs.xml.dist"
+        ],
+        "coding-standards-check": [
+            "@coding-standards-check/phpcs"
+        ],
+        "coding-standards-apply/phpcbf": [
+            "phpcbf --standard=phpcs.xml.dist"
+        ],
+        "coding-standards-apply": [
+            "@coding-standards-apply/phpcbf"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
