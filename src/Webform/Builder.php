@@ -87,9 +87,9 @@ class Builder {
       foreach ($type->getElements() as $element) {
         assert($element instanceof ElementItem);
         $element = $this->buildElementItem($element);
-        $id = $element['id'];
-        unset($element['id']);
-        $elements[$id] = $element;
+        $key = $element['key'];
+        unset($element['key']);
+        $elements[$key] = $element;
       }
     }
     else {
@@ -102,37 +102,51 @@ class Builder {
   /**
    * Build element item.
    *
+   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem $elementItem
+   *   The element item.
+   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem[] $rootPath
+   *   The root path.
+   *
    * @phpstan-return array<string, mixed>
    */
-  private function buildElementItem(ElementItem $element): array {
+  private function buildElementItem(ElementItem $elementItem, array $rootPath = []): array {
+    $title = NULL;
+    if ($elementItem instanceof SchemaItem) {
+      $title = $elementItem->getDoc();
+    }
+    if (empty($title)) {
+      $title = $elementItem->getName();
+    }
     $item = [
-      'id' => $element->getName(),
-      '#title' => $element instanceof SchemaItem ? $element->getDoc() : $element->getName(),
+      'key' => $this->computeElementKey($elementItem, $rootPath),
+      '#title' => $title,
     ];
 
-    if ($element instanceof ElementDef) {
+    if ($elementItem instanceof ElementDef) {
     }
-    elseif ($element instanceof ElementRef) {
+    elseif ($elementItem instanceof ElementRef) {
     }
-    elseif ($element instanceof Element) {
+    elseif ($elementItem instanceof Element) {
     }
     else {
-      throw new BuildException(sprintf('Unhandled element %s', get_class($element)));
+      throw new BuildException(sprintf('Unhandled element %s', get_class($elementItem)));
     }
 
-    $type = $element->getType();
+    $type = $elementItem->getType();
     $item['#type'] = 'textfield';
 
     if ($type instanceof ComplexType) {
       $item['#type'] = 'webform_section';
 
+      array_push($rootPath, $elementItem);
       foreach ($type->getElements() as $element) {
-        assert($element instanceof ElementItem);
-        $element = $this->buildElementItem($element);
-        $id = $element['id'];
-        unset($element['id']);
-        $item[$id] = $element;
+        assert($elementItem instanceof ElementItem);
+        $element = $this->buildElementItem($element, $rootPath);
+        $key = $element['key'];
+        unset($element['key']);
+        $item[$key] = $element;
       }
+      array_pop($rootPath);
     }
     elseif ($type instanceof ComplexTypeSimpleContent) {
     }
@@ -143,6 +157,40 @@ class Builder {
     }
 
     return array_filter($item);
+  }
+
+  /**
+   * Compute webform element key.
+   *
+   * An element key must contain only lowercase letters, numbers, and
+   * underscores.
+   *
+   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem $element
+   *   The element item.
+   * @param \GoetasWebservices\XML\XSDReader\Schema\Element\ElementItem[] $rootPath
+   *   The root path.
+   */
+  private function computeElementKey(ElementItem $element, array $rootPath): string {
+    $names = [$element->getName(), ...array_map(static function (ElementItem $element) {
+      return $element->getName();
+    }, $rootPath),
+    ];
+    $key = implode('_', $names);
+
+    // Convert to snake_case.
+    // @see https://stackoverflow.com/a/19533226/2502647
+    $key = ltrim(strtolower(preg_replace('/[A-Z]([A-Z](?![a-z]))*/', '_$0', $key)), '_');
+
+    // Replace sequences of disallowed characters to underscore.
+    $key = preg_replace('/[^a-z0-9_]+/', '_', $key);
+
+    $maxLength = 64;
+    if (strlen($key) > $maxLength) {
+      $id = uniqid();
+      $key = substr($key, 0, $maxLength - strlen($id) - 1) . '_' . $id;
+    }
+
+    return $key;
   }
 
 }
