@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+  targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+
+  <xsd:include schemaLocation="../core/KLB_Municipality.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_FormMeta.xsd"/>
+  <xsd:include schemaLocation="../domain/KLB_CareRecipientInformation.xsd"/>
+  <xsd:include schemaLocation="../domain/KLB_CareApplicantInformation.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Period.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Consent.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Statement.xsd"/>
+
+  <xsd:annotation>
+    <xsd:documentation source="KLB_ApplicationToCareForCloselyConnectedPersons_PN151.xsd.meta.xml"/>
+  </xsd:annotation>
+
+  <xsd:element name="ApplicationToCareForCloselyConnectedPersons_PN151">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="da">PN 151. Ansøgning om pasning af nærtstående med handicap eller alvorlig sygdom efter servicelovens paragraf 118.</xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Receiver" type="klb:MunicipalityType">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Sendes til pasningsmodtagerens bopælskommune</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:FormMeta">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Udfyldes af kommunen</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:CareRecipientInformation">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Oplysninger om pasningsmodtageren</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:CareApplicantInformation">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Oplysninger om ansøgeren</xsd:documentation>
+            <xsd:documentation xml:lang="da">Pasningen kan deles mellem flere personer. Alle personer, der deles om pasningen, skal udfylde en ansøgning</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:Period" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Perioder</xsd:documentation>
+            <xsd:documentation xml:lang="da">Der søges om pasning af ovenstående pasningsmodtager i følgende periode</xsd:documentation>
+            <xsd:documentation xml:lang="da">Der er mulighed for at opdele pasningen i perioder på 1 måneds varighed. Det er også muligt at opdele pasningen i kortere perioder, men kun efter aftale med din arbejdsgiver. Hvis du ønsker at opdele pasningen i perioder, så angives perioderne her. Hvis du har en aftale med din arbejdsgiver om opdeling af pasningen i kortere perioder skal aftalen sendes til kommunen snarest muligt.</xsd:documentation>
+            <xsd:documentation xml:lang="da">Du bør være opmærksom på bestemmelserne om ret til orlov fra arbejde. Vær særlig opmærksom på kravet om varsling af arbejdsgiver.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CareRecipientDeclaration">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Samtykke, erklæring og underskrift – Pasningsmodtager</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="CareRecipientConsent" type="klb:ConsentType">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="da">Samtykke til indhentning af oplysninger hos pasningsmodtagers læge om pasningsmodtagers helbredsmæssige forhold, der er beskrevet ovenfor.</xsd:documentation>
+                  <xsd:documentation xml:lang="da">Jeg giver hermed mit samtykke til, at kommunen kan indhente oplysninger hos min læge om de helbredsmæssige forhold, der er beskrevet ovenfor.</xsd:documentation>
+                  <xsd:documentation xml:lang="da">Jeg ønsker ikke at give kommunen mit samtykke til at indhente yderligere oplysninger om mine helbredsforhold. Jeg er indforstået med, at ansøgningen dermed behandles på basis af de her foreliggende oplysninger.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="CareRecipientStatement" type="klb:StatementType" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="da">Jeg er vidende om mine pligter og rettigheder med hensyn til samtykke, oplysningspligt mv. Jeg er indforstået med pasningsforholdet.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="ApplicantStatement" type="klb:StatementType">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Erklæring og underskrift – Ansøger</xsd:documentation>
+            <xsd:documentation xml:lang="da">Jeg kender mine rettigheder og pligter som angivet i afsnittet om behandling af personoplysninger.</xsd:documentation>
+            <xsd:documentation xml:lang="da">Rettigheder og pligter i forbindelse med kommunens behandling af personoplysninger. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

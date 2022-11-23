@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Samtykke</xsd:documentation>
+	</xsd:annotation>
+		
+	<xsd:element name="Consent" type="klb:ConsentType"/>
+	<xsd:complexType name="ConsentType">
+		<xsd:sequence>
+			<xsd:element name="ConsentStatus">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Requested">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="da">Anmodet</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="Given">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="da">Afgivet</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="Refused">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="da">Afvist</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="Withdrawn">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="da">Tilbagetrukket</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="Expired">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="da">Udløbet</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

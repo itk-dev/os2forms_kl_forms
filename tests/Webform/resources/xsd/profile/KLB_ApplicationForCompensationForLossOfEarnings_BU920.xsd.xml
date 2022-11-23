@@ -1,0 +1,260 @@
+<sch:ApplicationForCompensationForLossOfEarnings_BU920 xmlns:sch="https://klxml.dk/KLB/xml/schemas/" xmlns:ns="http://rep.oio.dk/cvr.dk/xml/schemas/2002/06/28/" xmlns:ns1="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/05/23/" xmlns:ns2="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/" xmlns:ns3="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/" xmlns:ns4="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" xmlns:ns5="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/" xmlns:ns6="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/13/" xmlns:ns7="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/" xmlns:ns8="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" xmlns:ns9="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+  <sch:Receiver>
+    <!--You have a CHOICE of the next 2 items at this level-->
+    <ns:CVRNumber>stringst</ns:CVRNumber>
+    <sch:MunicipalityContactInformation>
+      <sch:MunicipalityReference>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <ns1:MunicipalityName>string</ns1:MunicipalityName>
+        <ns2:MunicipalityCode>string</ns2:MunicipalityCode>
+      </sch:MunicipalityReference>
+      <sch:Address>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <sch:SimpleAddress>string</sch:SimpleAddress>
+        <ns3:AddressPostal>
+          <!--Optional:-->
+          <ns4:MailDeliverySublocationIdentifier>string</ns4:MailDeliverySublocationIdentifier>
+          <ns5:StreetName>string</ns5:StreetName>
+          <!--Optional:-->
+          <ns2:StreetNameForAddressingName>string</ns2:StreetNameForAddressingName>
+          <ns4:StreetBuildingIdentifier>string</ns4:StreetBuildingIdentifier>
+          <!--Optional:-->
+          <ns4:FloorIdentifier>string</ns4:FloorIdentifier>
+          <!--Optional:-->
+          <ns4:SuiteIdentifier>stri</ns4:SuiteIdentifier>
+          <!--Optional:-->
+          <ns5:DistrictSubdivisionIdentifier>string</ns5:DistrictSubdivisionIdentifier>
+          <!--Optional:-->
+          <ns6:PostOfficeBoxIdentifier>100</ns6:PostOfficeBoxIdentifier>
+          <ns5:PostCodeIdentifier>string</ns5:PostCodeIdentifier>
+          <ns5:DistrictName>string</ns5:DistrictName>
+          <!--Optional:-->
+          <ns4:CountryIdentificationCode scheme="un-numeric3">string</ns4:CountryIdentificationCode>
+        </ns3:AddressPostal>
+      </sch:Address>
+    </sch:MunicipalityContactInformation>
+  </sch:Receiver>
+  <sch:FormMeta>
+    <!--Optional:-->
+    <sch:RecordRegistrationDate>2007-10-26</sch:RecordRegistrationDate>
+    <sch:KLEEmneklasse>string</sch:KLEEmneklasse>
+    <sch:KLEHandlingsfacet>string</sch:KLEHandlingsfacet>
+    <!--Optional:-->
+    <sch:CaseFileIdentifier>string</sch:CaseFileIdentifier>
+    <!--Optional:-->
+    <sch:GrantedFirstTimeDate>string</sch:GrantedFirstTimeDate>
+    <sch:EuropeanArticleNumber>string</sch:EuropeanArticleNumber>
+  </sch:FormMeta>
+  <sch:ChildcareRecipientInformation>
+    <ns7:SimpleCPRPerson>
+      <ns8:PersonNameStructure>
+        <ns4:PersonGivenName>string</ns4:PersonGivenName>
+        <!--Optional:-->
+        <ns4:PersonMiddleName>string</ns4:PersonMiddleName>
+        <ns4:PersonSurnameName>string</ns4:PersonSurnameName>
+      </ns8:PersonNameStructure>
+      <ns2:PersonCivilRegistrationIdentifier>string</ns2:PersonCivilRegistrationIdentifier>
+    </ns7:SimpleCPRPerson>
+    <sch:DisabilityIllnessCondition>
+      <sch:ShortDescription>string</sch:ShortDescription>
+      <!--Optional:-->
+      <sch:Attachment>61656F6C69616D</sch:Attachment>
+    </sch:DisabilityIllnessCondition>
+  </sch:ChildcareRecipientInformation>
+  <sch:ChildcareApplicantInformation>
+    <sch:Applicant>
+      <ns7:SimpleCPRPerson>
+        <ns8:PersonNameStructure>
+          <ns4:PersonGivenName>string</ns4:PersonGivenName>
+          <!--Optional:-->
+          <ns4:PersonMiddleName>string</ns4:PersonMiddleName>
+          <ns4:PersonSurnameName>string</ns4:PersonSurnameName>
+        </ns8:PersonNameStructure>
+        <ns2:PersonCivilRegistrationIdentifier>string</ns2:PersonCivilRegistrationIdentifier>
+      </ns7:SimpleCPRPerson>
+      <sch:Address>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <sch:SimpleAddress>string</sch:SimpleAddress>
+        <ns3:AddressPostal>
+          <!--Optional:-->
+          <ns4:MailDeliverySublocationIdentifier>string</ns4:MailDeliverySublocationIdentifier>
+          <ns5:StreetName>string</ns5:StreetName>
+          <!--Optional:-->
+          <ns2:StreetNameForAddressingName>string</ns2:StreetNameForAddressingName>
+          <ns4:StreetBuildingIdentifier>string</ns4:StreetBuildingIdentifier>
+          <!--Optional:-->
+          <ns4:FloorIdentifier>string</ns4:FloorIdentifier>
+          <!--Optional:-->
+          <ns4:SuiteIdentifier>stri</ns4:SuiteIdentifier>
+          <!--Optional:-->
+          <ns5:DistrictSubdivisionIdentifier>string</ns5:DistrictSubdivisionIdentifier>
+          <!--Optional:-->
+          <ns6:PostOfficeBoxIdentifier>100</ns6:PostOfficeBoxIdentifier>
+          <ns5:PostCodeIdentifier>string</ns5:PostCodeIdentifier>
+          <ns5:DistrictName>string</ns5:DistrictName>
+          <!--Optional:-->
+          <ns4:CountryIdentificationCode scheme="iso3166-alpha2">string</ns4:CountryIdentificationCode>
+        </ns3:AddressPostal>
+      </sch:Address>
+      <!--Optional:-->
+      <ns9:TelephoneSubscriberIdentifier schemeID="token" schemeAgencyID="token" schemeVersionID="token" schemeAgencySchemeID="token" schemeAgencySchemeAgencyID="token" schemeDataURI="http://www.corp.org/temperat/per" schemeURI="http://www.test.com/regemque/nimborum" UID="string" UIDRef="string" UIDRefs="string string" language="en">token</ns9:TelephoneSubscriberIdentifier>
+    </sch:Applicant>
+    <sch:HasCustody>false</sch:HasCustody>
+    <sch:FinancialInformation>
+      <!--You have a CHOICE of the next 2 items at this level-->
+      <sch:DoesntHavePensionScheme>false</sch:DoesntHavePensionScheme>
+      <sch:PensionSchemeInformation>
+        <!--Optional:-->
+        <sch:PensionScheme>string</sch:PensionScheme>
+        <sch:PensionFund>string</sch:PensionFund>
+        <sch:PensionFundDepartment>string</sch:PensionFundDepartment>
+      </sch:PensionSchemeInformation>
+    </sch:FinancialInformation>
+  </sch:ChildcareApplicantInformation>
+  <sch:CompensationInformation>
+    <sch:CompensationUsage>
+      <sch:ShortDescription>string</sch:ShortDescription>
+      <!--Optional:-->
+      <sch:Attachment>cHJvZnVuZHVt</sch:Attachment>
+    </sch:CompensationUsage>
+    <sch:CompensationExtent>
+      <sch:HoursQuantity>100</sch:HoursQuantity>
+      <sch:Frequency>Weekly</sch:Frequency>
+      <sch:StartDate>2016-02-20+01:00</sch:StartDate>
+      <!--Optional:-->
+      <sch:EndDate>2019-08-19</sch:EndDate>
+    </sch:CompensationExtent>
+  </sch:CompensationInformation>
+  <sch:ApplicantDeclaration>
+    <sch:ApplicantConsent>
+      <sch:ConsentStatus>Expired</sch:ConsentStatus>
+    </sch:ApplicantConsent>
+    <sch:ApplicantStatement>
+      <sch:Date>2013-06-17</sch:Date>
+      <xd:Signature Id="string">
+        <xd:SignedInfo Id="string">
+          <xd:CanonicalizationMethod Algorithm="http://www.my.com/ac/caelumque">
+            speluncis
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+            circum
+          </xd:CanonicalizationMethod>
+          <xd:SignatureMethod Algorithm="http://www.sample.com/praeterea/arce">
+            claustra
+            <!--Optional:-->
+            <xd:HMACOutputLength>100</xd:HMACOutputLength>
+            circum
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+            imperio
+          </xd:SignatureMethod>
+          <!--1 or more repetitions:-->
+          <xd:Reference Id="string" URI="http://www.test.org/et/ac" Type="http://www.my.gov/sed/pectore">
+            <!--Optional:-->
+            <xd:Transforms>
+              <!--1 or more repetitions:-->
+              <xd:Transform Algorithm="http://www.sample.org/austris/annos">
+                sciret
+                <!--You have a CHOICE of the next 2 items at this level-->
+                <!--You may enter ANY elements at this point-->
+                <AnyElement/>
+                <xd:XPath>string</xd:XPath>
+                certo
+              </xd:Transform>
+            </xd:Transforms>
+            <xd:DigestMethod Algorithm="http://www.sample.com/bella/volutans">
+              dedit
+              <!--You may enter ANY elements at this point-->
+              <AnyElement/>
+              faciat
+            </xd:DigestMethod>
+            <xd:DigestValue>bWFnbm8=</xd:DigestValue>
+          </xd:Reference>
+        </xd:SignedInfo>
+        <xd:SignatureValue Id="string">ZXQ=</xd:SignatureValue>
+        <!--Optional:-->
+        <xd:KeyInfo Id="string">
+          ac
+          <!--You have a CHOICE of the next 8 items at this level-->
+          <xd:KeyName>string</xd:KeyName>
+          <xd:KeyValue>
+            et
+            <!--You have a CHOICE of the next 3 items at this level-->
+            <xd:DSAKeyValue>
+              <xd:P>cmVnZW1xdWU=</xd:P>
+              <xd:Q>YW5ub3M=</xd:Q>
+              <!--Optional:-->
+              <xd:G>aW5maXhpdA==</xd:G>
+              <xd:Y>dmVudG9z</xd:Y>
+              <!--Optional:-->
+              <xd:J>dGVuZW5z</xd:J>
+              <xd:Seed>cmVnaW5h</xd:Seed>
+              <xd:PgenCounter>bW9udGlz</xd:PgenCounter>
+            </xd:DSAKeyValue>
+            <xd:RSAKeyValue>
+              <xd:Modulus>cmFwaWR1bQ==</xd:Modulus>
+              <xd:Exponent>aGFiZW5hcw==</xd:Exponent>
+            </xd:RSAKeyValue>
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+            insuper
+          </xd:KeyValue>
+          <xd:RetrievalMethod URI="http://www.corp.org/iovisque/in" Type="http://www.any.com/iunonis/coniunx">
+            <!--Optional:-->
+            <xd:Transforms>
+              <!--1 or more repetitions:-->
+              <xd:Transform Algorithm="http://www.your.com/illum/frenat">
+                aris
+                <!--You have a CHOICE of the next 2 items at this level-->
+                <!--You may enter ANY elements at this point-->
+                <AnyElement/>
+                <xd:XPath>string</xd:XPath>
+                nimborum
+              </xd:Transform>
+            </xd:Transforms>
+          </xd:RetrievalMethod>
+          <xd:X509Data>
+            <!--You have a CHOICE of the next 6 items at this level-->
+            <xd:X509IssuerSerial>
+              <xd:X509IssuerName>string</xd:X509IssuerName>
+              <xd:X509SerialNumber>100</xd:X509SerialNumber>
+            </xd:X509IssuerSerial>
+            <xd:X509SKI>YXJpcw==</xd:X509SKI>
+            <xd:X509SubjectName>string</xd:X509SubjectName>
+            <xd:X509Certificate>bW9sbGl0cXVl</xd:X509Certificate>
+            <xd:X509CRL>cHJlbWVyZQ==</xd:X509CRL>
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+          </xd:X509Data>
+          <xd:PGPData>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <xd:PGPKeyID>bW9udGlz</xd:PGPKeyID>
+            <!--Optional:-->
+            <xd:PGPKeyPacket>aW5zdXBlcg==</xd:PGPKeyPacket>
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+            <xd:PGPKeyPacket>bW9sZW1xdWU=</xd:PGPKeyPacket>
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+          </xd:PGPData>
+          <xd:SPKIData>
+            <xd:SPKISexp>ZmVyYW50</xd:SPKISexp>
+            <!--You may enter ANY elements at this point-->
+            <AnyElement/>
+          </xd:SPKIData>
+          <xd:MgmtData>string</xd:MgmtData>
+          <!--You may enter ANY elements at this point-->
+          <AnyElement/>
+          gero
+        </xd:KeyInfo>
+        <!--Zero or more repetitions:-->
+        <xd:Object Id="string" MimeType="string" Encoding="http://www.test.org/vasto/montis">
+          flammato
+          <!--You may enter ANY elements at this point-->
+          <AnyElement/>
+          aris
+        </xd:Object>
+      </xd:Signature>
+    </sch:ApplicantStatement>
+  </sch:ApplicantDeclaration>
+</sch:ApplicationForCompensationForLossOfEarnings_BU920>

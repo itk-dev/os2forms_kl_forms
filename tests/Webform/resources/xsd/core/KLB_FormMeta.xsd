@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:element name="FormMeta">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Blanketmetadata</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RecordRegistrationDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Registreringsdato på en akt</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="KLEEmneklasse" type="xsd:string"/>
+				<xsd:element name="KLEHandlingsfacet" type="xsd:string"/>
+				<xsd:element name="CaseFileIdentifier" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Sagsidentifikation</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="GrantedFirstTimeDate" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Bevilget første gang - dato</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EuropeanArticleNumber" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">EAN-stregkode der identificerer en blanket</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

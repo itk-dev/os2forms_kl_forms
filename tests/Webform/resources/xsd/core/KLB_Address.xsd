@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:xkom="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/" schemaLocation="../imports/xkom/XKOM_AddressPostal.xsd"/>
+	
+	<xsd:element name="Address">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Adresse</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="SimpleAddress" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Simpel adresse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="xkom:AddressPostal">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Udvidet adresse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

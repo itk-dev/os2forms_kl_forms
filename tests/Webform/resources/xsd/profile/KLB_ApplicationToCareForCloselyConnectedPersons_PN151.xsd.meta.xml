@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Metadata xmlns="http://rep.oio.dk/infostructurebase/schemas/2004/09/13/">
+	<Title>ApplicationToCareForCloselyConnectedPersons_PN151</Title>
+	
+	<DescriptionStructure>
+		<DescriptionEnglish>Application to care for closely connected persons with disabilities or suffering from serious diseases pursuant to section 118 of the Act on Social Services.</DescriptionEnglish>
+		<DescriptionDanish>Ansøgning om pasning af nærtstående med handicap eller alvorlig sygdom efter servicelovens paragraf 118.</DescriptionDanish>
+	</DescriptionStructure>
+	
+	<LabelStructure>
+		<LabelEnglish>Application to care for closely connected persons with disabilities or suffering from serious diseases</LabelEnglish>
+		<LabelDanish>Ansøgning om pasning af nærtstående med handicap eller alvorlig sygdom</LabelDanish>
+	</LabelStructure>
+	
+	<Author>KL</Author>
+	<Version>08/2019</Version>
+	<OldVersionUrl>https://klxml.dk/xml/schemas/profile/KLB/KLB_ApplicationToCareForCloselyConnectedPersons_PN151_112018.xsd</OldVersionUrl>
+	
+	<ExampleFileCollection>
+		<ExampleFile>https://klxml.dk/xml/schemas/profile/KLB/KLB_ApplicationToCareForCloselyConnectedPersons.xsd.attach.example.xml</ExampleFile>
+	</ExampleFileCollection>
+	
+	<KeywordCollection>
+		<Keyword>pasning</Keyword>
+		<Keyword>nærtstående</Keyword>
+		<Keyword>handicap</Keyword>
+		<Keyword>alvorlig sygdom</Keyword>
+		<Keyword>serviceloven</Keyword>
+		<Keyword>paragraf 118</Keyword>
+		<Keyword>terminalpleje</Keyword>
+	</KeywordCollection>
+	
+	<TaxonomyIdentifierCollection>
+		<TaxonomyIdentifier>http://www.kle-online.dk/emneplan/27/#_27.63.04</TaxonomyIdentifier>
+		<TaxonomyIdentifier>http://id.esd.org.uk/unspscConcept/91111904</TaxonomyIdentifier>
+	</TaxonomyIdentifierCollection>
+	
+	<CustomMetadataCollection>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2022/170#P118</CustomMetadataItem>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2006/223#P1</CustomMetadataItem>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2006/223#P2</CustomMetadataItem>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2006/223#P3</CustomMetadataItem>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2006/223#P4</CustomMetadataItem>
+		<CustomMetadataItem name="LegislationExcerpt">https://www.retsinformation.dk/eli/lta/2006/223#P5</CustomMetadataItem>
+		<CustomMetadataItem name="Rettigheder og pligter i forbindelse med kommunens behandling af personoplysninger">Du bedes udfylde blanketten, for at kommunen kan behandle din henvendelse på et fyldestgørende grundlag, jf. retssikkerhedslovens § 11, stk. 1.
+
+		Hvis der er spørgsmål, som du ikke kan besvare, så kontakt kommunen.
+
+		Når du modtager ydelser fra kommunen, har du pligt til at oplyse om ændringer, der kan have betydning for ydelsen. Det gælder både oplysninger vedrørende dig selv eller den, der skal passes, jf. Retssikkerhedslovens § 11, stk. 2.
+
+		Kommunen kan indhente økonomiske oplysninger samt oplysninger om dine ferieforhold fra
+		• andre offentlige myndigheder,
+		• eIndkomstregistret,
+		• A-kasser og
+		• Feriekonto.
+
+		Kommunen kan indhente tilsvarende oplysninger om andre i din husstand.
+
+		Kommunen bruger oplysningerne til behandling af din sag eller til efterfølgende kontrol jf. retssikkerhedslovens § 11a, stk. 2 til 5.</CustomMetadataItem>
+		<CustomMetadataItem name="Kommunens registrering og videregivelse af oplysninger">Kommunen registrerer de modtagne oplysninger og videregiver oplysningerne til andre offentlige myndigheder, private virksomheder m.fl., der har lovmæssigt krav på oplysningerne eller samarbejder med kommunen.
+		
+		Kommunen sletter oplysningerne når opbevaringspligten udløber og et eventuelt arkiveringskrav er opfyldt. Når oplysningerne er arkiveret eller slettet, har Kommunen ikke længere adgang til dem.
+
+		Du har ret til at vide, hvilke oplysninger Kommunen har om dig, og du kan kræve forkerte oplysninger rettet eller slettet.</CustomMetadataItem>
+		<CustomMetadataItem name="Kommunens databeskyttelsesrådgiver">Du kan kontakte databeskyttelsesrådgiveren om dine rettigheder i henhold til databeskyttelseslovgivningen.
+		
+		Du har ret til at klage til Datatilsynet over Kommunens behandling af dine personlige oplysninger.
+
+		På Datatilsynet.dk kan du læse mere om databeskyttelsesrådgiverens rolle.</CustomMetadataItem>
+		<CustomMetadataItem name="Om samtykke">Ved samtykke forstås ”enhver frivillig, specifik, informeret og utvetydig viljestilkendegivelse fra den registrerede, hvorved den registrerede ved erklæring eller klar bekræftelse indvilliger i, at personoplysninger, der vedrører den pågældende, gøres til genstand for behandling.” Jf. persondataforordningen artikel 4 nr. 11.
+
+		Du kan altid tilbagekalde et samtykke til indhentning eller videregivelse af oplysninger, jf. databeskyttelsesforordningens artikel 7, stk. 3.
+
+		Dit samtykke bortfalder automatisk når sagen er færdigbehandlet.
+
+		Hvis du ikke ønsker at give samtykke til kommunen, behandler kommunen din sag på det foreliggende grundlag, jf. retssikkerhedslovens § 11b.
+
+		Det kan have betydning for retten til ansættelse. Det samme gælder, hvis du tilbagekalder et samtykke.</CustomMetadataItem>
+	</CustomMetadataCollection>
+</Metadata>

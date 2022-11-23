@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:cpr="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	
+	<xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/" schemaLocation="../imports/cpr/CPR_SimpleCPRPerson.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Oplysninger om en pasningsmodtager</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="ChildcareRecipientInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="cpr:SimpleCPRPerson">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Barnets navn og personnummer</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="DisabilityIllnessCondition">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Betydelig/varig nedsat funktionsevne eller indgribende kronisk/langvarig/uhelbredelig lidelse.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ShortDescription" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kort beskrivelse af barnets lidelse/nedsatte funktionsevne</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="Attachment" type="xsd:hexBinary" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Vedlagt uddybende beskrivelse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

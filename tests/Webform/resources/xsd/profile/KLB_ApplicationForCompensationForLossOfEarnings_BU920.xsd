@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+  targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+
+  <xsd:include schemaLocation="../core/KLB_Municipality.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_FormMeta.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+  <xsd:include schemaLocation="../domain/KLB_ChildcareRecipientInformation.xsd"/>
+  <xsd:include schemaLocation="../domain/KLB_ChildcareApplicantInformation.xsd"/>
+  <xsd:include schemaLocation="../domain/KLB_CompensationInformation.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Consent.xsd"/>
+  <xsd:include schemaLocation="../core/KLB_Statement.xsd"/>
+
+  <xsd:annotation>
+    <xsd:documentation source="KLB_ApplicationForCompensationForLossOfEarnings_BU920.xsd.meta.xml"/>
+  </xsd:annotation>
+
+  <xsd:element name="ApplicationForCompensationForLossOfEarnings_BU920">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="da">BU 920. Ansøgning om kompensation for tabt arbejdsfortjeneste efter servicelovens paragraf 42.</xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Receiver" type="klb:MunicipalityType">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Sendes til kommunen</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:FormMeta">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Udfyldes af kommunen</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:ChildcareRecipientInformation">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Der ansøges om kompensation for tabt arbejdsfortjeneste til pasning af</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:ChildcareApplicantInformation">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Ansøger</xsd:documentation>
+            <xsd:documentation xml:lang="da">Skriftlig kommunikation fra kommunen vil som udgangspunkt blive tilsendt digitalt i Digital Post.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="klb:CompensationInformation">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Oplysninger om kompensation</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="ApplicantDeclaration">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="da">Samtykke og underskrift</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="ApplicantConsent" type="klb:ConsentType">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="da">Kommunen kan hente yderligere oplysninger om ovennævnte barns helbredsforhold og mine løn- og ansættelsesvilkår, hvis det har betydning for behandlingen af min ansøgning. Oplysningerne kan indhentes hos de parter, der er anført ovenfor under "Supplerende oplysninger", hos kommunens øvrige forvaltninger, min arbejdsgiver og mit pensionsselskab.</xsd:documentation>
+                  <xsd:documentation xml:lang="da">Kommunen må ikke indhente yderligere oplysninger. Jeg er indforstået med, at min ansøgning behandles på basis af de her foreliggende oplysninger</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="ApplicantStatement" type="klb:StatementType">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="da">Jeg kender mine rettigheder og pligter som angivet i afsnittet om behandling af personoplysninger.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

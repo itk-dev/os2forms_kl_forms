@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_BankAccount.xsd"/>
+	<xsd:include schemaLocation="../domain/KLB_LabourMarketAttachment.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Oplysninger om en ansøger</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="CareApplicantInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Applicant" type="klb:PersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Ansøger</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="klb:BankAccount"/>
+				<xsd:element name="PensionSchemeInformation">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Oplysninger om ansøgers pensionsordning</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:choice>
+							<xsd:element name="DoesntHavePensionScheme" type="xsd:boolean" fixed="true">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Ansøgeren har ikke en pensionsordning</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="PensionFundInformation">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Oplysninger om ansøgers pensionskasse</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="PensionFund" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Pensionskasse</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="PensionFundDepartment" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Afdeling i pensionskasse.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:choice>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="klb:LabourMarketAttachment">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Tilknytning til arbejdsmarked</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EmployerName" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Oplys arbejdsgiver/egen virksomhed - navn</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

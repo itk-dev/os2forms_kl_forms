@@ -6,6 +6,12 @@
 drush --uri=… os2forms-kl-forms:generate kl_PN151 …/skemapakke/profile/KLB_ApplicationToCareForCloselyConnectedPersons_PN151.xsd --title='KLB_ApplicationToCareForCloselyConnectedPersons_PN151'
 ```
 
+## Tests
+
+```sh
+docker run --rm --interactive --tty --volume ${PWD}:/app itkdev/php7.4-fpm:latest composer2 test
+```
+
 ## Coding standards
 
 ```sh

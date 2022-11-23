@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+  xmlns:cvr="http://rep.oio.dk/cvr.dk/xml/schemas/2002/06/28/"
+  xmlns:cpr2005="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/"
+  xmlns:cpr2006="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/05/23/"
+  targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+
+  <xsd:include schemaLocation="KLB_Address.xsd"/>
+
+  <xsd:import namespace="http://rep.oio.dk/cvr.dk/xml/schemas/2002/06/28/" schemaLocation="../imports/cvr/CVR_CVRNumber.xsd"/>
+  <xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/" schemaLocation="../imports/cpr/CPR_MunicipalityCode.xsd"/>
+  <xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/05/23/" schemaLocation="../imports/cpr/CPR_MunicipalityName.xsd"/>
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="da">Kommune</xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="Municipality" type="klb:MunicipalityType"/>
+  <xsd:complexType name="MunicipalityType">
+    <xsd:choice>
+      <xsd:element ref="cvr:CVRNumber">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="da">CVR-nummer på en kommune</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MunicipalityContactInformation">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="da">Kontaktoplysninger på en kommune</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MunicipalityReference">
+              <xsd:complexType>
+                <xsd:choice>
+                  <xsd:element ref="cpr2006:MunicipalityName">
+                    <xsd:annotation>
+                      <xsd:documentation xml:lang="da">Kommunenavn</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element ref="cpr2005:MunicipalityCode">
+                    <xsd:annotation>
+                      <xsd:documentation xml:lang="da">Kommunekode</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:choice>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="klb:Address"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:schema>

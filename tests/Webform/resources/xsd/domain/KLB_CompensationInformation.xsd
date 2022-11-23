@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="../domain/KLB_CompensationExtent.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Oplysninger om kompensation</xsd:documentation>
+	</xsd:annotation>
+		
+	<xsd:element name="CompensationInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CompensationUsage">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Hvad skal timerne bruges til</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ShortDescription" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kort beskrivelse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="Attachment" type="xsd:base64Binary" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Vedlagt uddybende beskrivelse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>				
+				<xsd:element ref="klb:CompensationExtent">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Forslag til antal timer og hyppighed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

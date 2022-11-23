@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:cpr="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/"
+	xmlns:cpr0503="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	targetNamespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/" elementFormDefault="qualified">
+
+	<xsd:import namespace="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" schemaLocation="../itst/ITST_PersonNameStructure.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/" schemaLocation="CPR_PersonCivilRegistrationIdentifier.xsd"/>
+
+	<xsd:element name="SimpleCPRPerson" type="cpr:SimpleCPRPersonType"/>
+	<xsd:complexType name="SimpleCPRPersonType">
+		<xsd:sequence>
+			<xsd:element ref="itst:PersonNameStructure"/>
+			<xsd:element ref="cpr0503:PersonCivilRegistrationIdentifier"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

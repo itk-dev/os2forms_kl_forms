@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:cpr="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/"
+	xmlns:dkcc="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/"
+	xmlns:dkcc2005="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/"
+	xmlns:dkcc2005-2="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/13/"
+	xmlns:xkom="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/"
+	targetNamespace="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/" elementFormDefault="qualified" >
+	
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/" schemaLocation="../dkcc/DKCC_StreetName.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_StreetBuildingIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_FloorIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_SuiteIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_MailDeliverySublocationIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/" schemaLocation="../dkcc/DKCC_DistrictSubdivisionIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/13/" schemaLocation="../dkcc/DKCC_PostOfficeBoxIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/" schemaLocation="../dkcc/DKCC_PostCodeIdentifier.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/" schemaLocation="../dkcc/DKCC_DistrictName.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_CountryIdentificationCode.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/" schemaLocation="../cpr/CPR_StreetNameForAddressingName.xsd"/>
+	
+	<xsd:element name="AddressPostal" type="xkom:AddressPostalType"/>
+	<xsd:complexType name="AddressPostalType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" ref="dkcc:MailDeliverySublocationIdentifier"/>
+			<xsd:element ref="dkcc2005:StreetName"/>
+			<xsd:element minOccurs="0" ref="cpr:StreetNameForAddressingName"/>
+			<xsd:element ref="dkcc:StreetBuildingIdentifier"/>
+			<xsd:element minOccurs="0" ref="dkcc:FloorIdentifier"/>
+			<xsd:element minOccurs="0" ref="dkcc:SuiteIdentifier"/>
+			<xsd:element minOccurs="0" ref="dkcc2005:DistrictSubdivisionIdentifier"/>
+			<xsd:element minOccurs="0" ref="dkcc2005-2:PostOfficeBoxIdentifier"/>
+			<xsd:element ref="dkcc2005:PostCodeIdentifier"/>
+			<xsd:element ref="dkcc2005:DistrictName"/>
+			<xsd:element minOccurs="0" ref="dkcc:CountryIdentificationCode"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:element name="Frequency">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Hyppighed</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:enumeration value="Weekly">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Pr. uge</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Monthly">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Pr. måned</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Yearly">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Pr. år</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

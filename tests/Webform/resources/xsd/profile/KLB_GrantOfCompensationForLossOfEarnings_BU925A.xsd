@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:cpr="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	xmlns:cc="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_FormMeta.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	<xsd:include schemaLocation="../domain/KLB_CompensationExtent.xsd"/>
+	<xsd:include schemaLocation="../domain/KLB_TaxCardType.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_Municipality.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_Statement.xsd"/>
+	
+	<xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/" schemaLocation="../imports/cpr/CPR_SimpleCPRPerson.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" schemaLocation="../imports/itst/ITST_PersonNameStructure.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" schemaLocation="../imports/cc/CC_TelephoneSubscriberIdentifier.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation source="KLB_GrantOfCompensationForLossOfEarnings_BU925A.xsd.meta.xml"/>
+	</xsd:annotation>
+	
+	<xsd:element name="GrantOfCompensationForLossOfEarnings_BU925A">	
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">BU 925A. Bevilling af kompensation for tabt arbejdsfortjeneste efter servicelovens paragraf 42.</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Receiver" type="klb:PersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Navn og adresse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="klb:FormMeta">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Oplyses ved henvendelse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ChildcareRecipient" type="cpr:SimpleCPRPersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Du er bevilget kompensation for tabt arbejdsfortjeneste til pasning af</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="GrantedCompensation">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Bevilget kompensation</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="CompensationPaymentAmount" type="xsd:decimal">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kompensationen for tabt arbejdsfortjeneste beregnet til (bruttoydelse)</xsd:documentation>
+									<xsd:documentation xml:lang="da">Kr. pr. måned</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CompensationPaymentDeductionAmount" type="xsd:decimal">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Vurderet besparelse ifm. arbejdsophør trækkes fra nettoydelsen (efter skat, pension mv.) med</xsd:documentation>
+									<xsd:documentation xml:lang="da">Kr. pr. måned</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CompensationJustification">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Der er bevilget kompensation for</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element ref="klb:CompensationExtent">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Antal timer og hyppighed</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="IncomeBasisAmount" type="xsd:decimal">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Indkomstgrundlag, jf. bekendtgørelsens § 10 har kommunen beregnet din indkomst til</xsd:documentation>
+												<xsd:documentation xml:lang="da">Kr. pr. måned</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="IncomeBasisAdjustedAmount" type="xsd:decimal">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Indkomstgrundlag justeret for loft, jf. bekendtgørelsens § 9</xsd:documentation>
+												<xsd:documentation xml:lang="da">Kr. pr. måned</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Pension">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Pension</xsd:documentation>
+									<xsd:documentation xml:lang="da">Af bruttoydelsen skal du betale egenbidrag til ATP. Kommunen indbetaler arbejdsgiverbidraget.</xsd:documentation>
+									<xsd:documentation xml:lang="da">Kommunen betaler herudover bidrag til pensionsordning med</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="PensionSchemeInformation">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Oplysninger om ansøgers pensionsordning</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:choice>
+													<xsd:element name="DoesntHavePensionScheme" type="xsd:boolean" fixed="true">
+														<xsd:annotation>
+															<xsd:documentation xml:lang="da">Du bedes oplyse kommunen om pensionsselskab senest</xsd:documentation>
+														</xsd:annotation>
+													</xsd:element>
+													<xsd:element name="RequestForInformationDate" type="xsd:date">
+														<xsd:annotation>
+															<xsd:documentation xml:lang="da">Dato</xsd:documentation>
+														</xsd:annotation>
+													</xsd:element>
+													<xsd:element name="PensionFundInformation">
+														<xsd:annotation>
+															<xsd:documentation xml:lang="da">Pensionen indbetales til</xsd:documentation>
+														</xsd:annotation>
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="PensionFund" type="xsd:string">
+																	<xsd:annotation>
+																		<xsd:documentation xml:lang="da">Selskab</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+																<xsd:element name="PensionFundDepartment" type="xsd:string" minOccurs="0">
+																	<xsd:annotation>
+																		<xsd:documentation xml:lang="da">Adresse</xsd:documentation>
+																	</xsd:annotation>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:choice>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Vacation">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Ferie</xsd:documentation>
+									<xsd:documentation xml:lang="da">Der udbetales et ferietillæg på 1% af den årlige bruttoydelse. Beløbet udbetales pr. 1. maj det følgende år.</xsd:documentation>
+									<xsd:documentation xml:lang="da">Ved ophør af udbetaling af tabt arbejdsfortjeneste udbetales 12,5% af bruttoydelsen som feriegodtgørelse.</xsd:documentation>
+									<xsd:documentation xml:lang="da">Hvis du modtager feriegodtgørelse andre steder fra, bedes du henvende dig til kommunen, så kompensationen for tabt arbejdsfortjeneste kan stoppes i ferieperioden.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="TaxCard">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Skattekort</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element ref="klb:TaxCardType">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Du skal sikre dig, at dit hovedkort ikke anvendes flere steder på samme tid</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="CompensationPaymentDate" type="xsd:date">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Nettoydelsen vil blive indsat på din Nemkonto, og udbetales første gang</xsd:documentation>
+												<xsd:documentation xml:lang="da">Dato</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Sender">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Med venlig hilsen</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="klb:Municipality">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kommunens navn og adresse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="itst:PersonNameStructure">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kontaktperson</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="cc:TelephoneSubscriberIdentifier">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Lokalnummer</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="klb:Statement">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Du har mulighed for at klage over denne afgørelse inden 4 uger fra modtagelsen af denne bevilling. Vi skal have modtaget
+									klagen inden udløbet af fristen på 4 uger. Hvis vi ikke giver dig medhold i klagen, sender vi den videre til Ankestyrelsen.</xsd:documentation>
+									<xsd:documentation xml:lang="da">Hvis du har spørgsmål, bedes du henvende dig til kommunen. Se i øvrigt Vejledning om oplysningspligt og uddrag af
+									reglerne om tabt arbejdsfortjeneste.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

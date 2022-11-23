@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	xmlns:dkcc="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/"
+	targetNamespace="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_PersonGivenName.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_PersonMiddleName.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/" schemaLocation="../dkcc/DKCC_PersonSurnameName.xsd"/>
+
+	<xsd:element name="PersonNameStructure" type="itst:PersonNameStructureType"/>
+	<xsd:complexType name="PersonNameStructureType">
+		<xsd:sequence>
+			<xsd:element ref="dkcc:PersonGivenName"/>
+			<xsd:element ref="dkcc:PersonMiddleName" minOccurs="0"/>
+			<xsd:element ref="dkcc:PersonSurnameName"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
