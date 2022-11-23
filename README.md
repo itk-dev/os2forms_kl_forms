@@ -1,5 +1,11 @@
 # OS2Forms KL forms
 
+## Installation
+
+```sh
+composer require os2forms/os2forms_kl_forms:dev-feature/os2forms_kl_forms
+```
+
 ## Drush commands
 
 ```sh
