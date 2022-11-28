@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="KLB_Address.xsd"/>
+	
+	<xsd:import namespace="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" schemaLocation="../imports/itst/ITST_PersonNameStructure.xsd"/>
+		
+	<xsd:element name="Practitioner">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Læge</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="ProviderNumber">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Ydernummer</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[0-9]{6}"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PractitionerContactInformation">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Kontaktoplysninger på en læge</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="itst:PersonNameStructure">
+								<xsd:annotation>
+									<xsd:documentation>Navn</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="klb:Address">
+								<xsd:annotation>
+									<xsd:documentation>Adresse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

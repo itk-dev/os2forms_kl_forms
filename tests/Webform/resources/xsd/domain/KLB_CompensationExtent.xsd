@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="../core/KLB_Frequency.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Forslag til antal timer og hyppighed</xsd:documentation>
+	</xsd:annotation>
+		
+	<xsd:element name="CompensationExtent">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="HoursQuantity" type="xsd:integer">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Antal timer</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="klb:Frequency">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Hyppighed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="StartDate" type="xsd:date">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Fra dato</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EndDate" type="xsd:date" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Til dato</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

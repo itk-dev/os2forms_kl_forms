@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:element name="BankAccount">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Bankkonto</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BankName" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Bankens navn</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BankRegistrationNumber">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Registreringsnummer</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[0-9]{4}"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="BankAccountNumber">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Kontonummer</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="[0-9]{10}"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="BankDepartmentName" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Pengeinstituttets afdeling</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

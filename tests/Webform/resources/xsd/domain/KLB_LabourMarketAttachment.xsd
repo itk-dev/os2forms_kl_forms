@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:element name="LabourMarketAttachment">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Arbejdsmarkedstilknytning</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:enumeration value="Lønmodtager">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Lønmodtager</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Selvstændig">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Selvstændig</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Aktivt jobsøgende">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Aktivt jobsøgende</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

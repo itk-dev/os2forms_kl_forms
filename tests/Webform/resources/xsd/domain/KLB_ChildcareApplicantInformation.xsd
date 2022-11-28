@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Ansøger</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="ChildcareApplicantInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Applicant" type="klb:PersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Ansøger</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="HasCustody" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Har forældremyndighed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="FinancialInformation">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Indkomst og pension</xsd:documentation>
+						<xsd:documentation xml:lang="da">Kommunen indhenter oplysning om indtægtsforhold fra eIndkomstregistret</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:choice>
+							<xsd:element name="DoesntHavePensionScheme" type="xsd:boolean" fixed="true">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Ansøgeren har ikke en pensionsordning</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="PensionSchemeInformation">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Oplysninger om ansøgers pensionsordning</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="PensionScheme" type="xsd:string" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Evt. pensionsopsparing - arbejdsgiverandel - kr. pr. måned</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="PensionFund" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Pensionskasse</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="PensionFundDepartment" type="xsd:string">
+											<xsd:annotation>
+												<xsd:documentation xml:lang="da">Afdeling i pensionskasse.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:choice>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

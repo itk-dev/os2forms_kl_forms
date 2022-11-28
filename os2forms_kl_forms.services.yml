@@ -1,0 +1,7 @@
+services:
+  Drupal\os2forms_kl_forms\Webform\Builder:
+
+  Drupal\os2forms_kl_forms\Webform\Helper:
+    arguments:
+      - '@Drupal\os2forms_kl_forms\Webform\Builder'
+      - '@entity_type.manager'

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	xmlns:cc="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+
+	<xsd:include schemaLocation="../core/KLB_Person.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_FormMeta.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_Period.xsd"/>
+	<xsd:include schemaLocation="../core/KLB_Municipality.xsd"/>	
+	<xsd:include schemaLocation="../core/KLB_Statement.xsd"/>
+	
+	<xsd:import namespace="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/" schemaLocation="../imports/itst/ITST_PersonNameStructure.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" schemaLocation="../imports/cc/CC_TelephoneSubscriberIdentifier.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation source="KLB_GrantOfEmploymentToCareForCloselyConnectedPersons_PN152.xsd.meta.xml"/>
+	</xsd:annotation>
+	
+	<xsd:element name="GrantOfEmploymentToCareForCloselyConnectedPersons_PN152">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">PN 152. Bevilling af ansættelse til pasning af nærtstående med handicap eller alvorlig sygdom efter servicelovens paragraf 118.</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Receiver" type="klb:PersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Navn og adresse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="klb:FormMeta">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Oplyses ved henvendelse</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="klb:Period" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Du er bevilget ansættelse til pasning af nærtstående i perioderne</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CareRecipient" type="klb:PersonType">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">for pasning af</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CareSchemeIsSharedWith" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Pasningen deles med</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="itst:PersonNameStructure">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Navn</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CaseFileIdentifier" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Sagsidentifikation</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CareSchemeDistribution" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Fordeling af pasning</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ProportionPercentage" type="xsd:integer">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Angiv procent</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Attachment" type="xsd:base64Binary" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Vedlagt ansættelsesbrev</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CaseFileNote" type="xsd:string" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Bemærkninger</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Sender">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Med venlig hilsen</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="klb:Municipality">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kommunens navn og adresse</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="itst:PersonNameStructure">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Kontaktperson</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="cc:TelephoneSubscriberIdentifier">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Telefonnummer</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element ref="klb:Statement">
+								<xsd:annotation>
+									<xsd:documentation xml:lang="da">Du har mulighed for at klage over denne afgørelse inden 4 uger fra modtagelse af denne bevilling. Vi skal have modtaget klagen inden
+									udløbet af fristen på 4 uger. Hvis vi ikke giver dig medhold i klagen, sender vi den videre til Ankestyrelsen.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

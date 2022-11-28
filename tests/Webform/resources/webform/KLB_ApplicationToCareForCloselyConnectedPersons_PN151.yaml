@@ -1,0 +1,650 @@
+id: ApplicationToCareForCloselyConnectedPersons_PN151
+title: ApplicationToCareForCloselyConnectedPersons_PN151
+category: KL
+description: 'PN 151. Ansøgning om pasning af nærtstående med handicap eller alvorlig sygdom efter servicelovens paragraf 118.'
+elements:
+  receiver:
+    '#title': 'Sendes til pasningsmodtagerens bopælskommune'
+    '#type': webform_section
+    cvr_number:
+      '#title': 'CVR-nummer på en kommune'
+      '#type': textfield
+    municipality_contact_information:
+      '#title': 'Kontaktoplysninger på en kommune'
+      '#type': webform_section
+      municipality_reference:
+        '#title': MunicipalityReference
+        '#type': webform_section
+        municipality_name:
+          '#title': Kommunenavn
+          '#type': textfield
+        municipality_code:
+          '#title': Kommunekode
+          '#type': textfield
+      address:
+        '#title': Address
+        '#type': webform_section
+        simple_address:
+          '#title': 'Simpel adresse'
+          '#type': textfield
+        address_postal:
+          '#title': 'Udvidet adresse'
+          '#type': webform_section
+          mail_delivery_sublocation_identifier:
+            '#title': MailDeliverySublocationIdentifier
+            '#type': textfield
+          street_name:
+            '#title': StreetName
+            '#type': textfield
+          street_name_for_addressing_name:
+            '#title': StreetNameForAddressingName
+            '#type': textfield
+          street_building_identifier:
+            '#title': StreetBuildingIdentifier
+            '#type': textfield
+          floor_identifier:
+            '#title': FloorIdentifier
+            '#type': textfield
+          suite_identifier:
+            '#title': SuiteIdentifier
+            '#type': textfield
+          district_subdivision_identifier:
+            '#title': DistrictSubdivisionIdentifier
+            '#type': textfield
+          post_office_box_identifier:
+            '#title': PostOfficeBoxIdentifier
+            '#type': textfield
+          post_code_identifier:
+            '#title': PostCodeIdentifier
+            '#type': textfield
+          district_name:
+            '#title': DistrictName
+            '#type': textfield
+          country_identification_code:
+            '#title': CountryIdentificationCode
+            '#type': textfield
+  form_meta:
+    '#title': 'Udfyldes af kommunen'
+    '#type': webform_section
+    record_registration_date:
+      '#title': 'Registreringsdato på en akt'
+      '#type': textfield
+    kle_emneklasse:
+      '#title': KLEEmneklasse
+      '#type': textfield
+    kle_handlingsfacet:
+      '#title': KLEHandlingsfacet
+      '#type': textfield
+    case_file_identifier:
+      '#title': Sagsidentifikation
+      '#type': textfield
+    granted_first_time_date:
+      '#title': 'Bevilget første gang - dato'
+      '#type': textfield
+    european_article_number:
+      '#title': 'EAN-stregkode der identificerer en blanket'
+      '#type': textfield
+  care_recipient_information:
+    '#title': 'Oplysninger om pasningsmodtageren'
+    '#type': webform_section
+    care_recipient:
+      '#title': Pasningsmodtager
+      '#type': webform_section
+      simple_cpr_person:
+        '#title': 'Simpel CPR-person'
+        '#type': webform_section
+        person_name_structure:
+          '#title': PersonNameStructure
+          '#type': webform_section
+          person_given_name:
+            '#title': PersonGivenName
+            '#type': textfield
+          person_middle_name:
+            '#title': PersonMiddleName
+            '#type': textfield
+          person_surname_name:
+            '#title': PersonSurnameName
+            '#type': textfield
+        person_civil_registration_identifier:
+          '#title': PersonCivilRegistrationIdentifier
+          '#type': textfield
+      address_01:
+        '#title': Adresse
+        '#type': webform_section
+        simple_address_01:
+          '#title': 'Simpel adresse'
+          '#type': textfield
+        address_postal_01:
+          '#title': 'Udvidet adresse'
+          '#type': webform_section
+          mail_delivery_sublocation_identifier_01:
+            '#title': MailDeliverySublocationIdentifier
+            '#type': textfield
+          street_name_01:
+            '#title': StreetName
+            '#type': textfield
+          street_name_for_addressing_name_01:
+            '#title': StreetNameForAddressingName
+            '#type': textfield
+          street_building_identifier_01:
+            '#title': StreetBuildingIdentifier
+            '#type': textfield
+          floor_identifier_01:
+            '#title': FloorIdentifier
+            '#type': textfield
+          suite_identifier_01:
+            '#title': SuiteIdentifier
+            '#type': textfield
+          district_subdivision_identifier_01:
+            '#title': DistrictSubdivisionIdentifier
+            '#type': textfield
+          post_office_box_identifier_01:
+            '#title': PostOfficeBoxIdentifier
+            '#type': textfield
+          post_code_identifier_01:
+            '#title': PostCodeIdentifier
+            '#type': textfield
+          district_name_01:
+            '#title': DistrictName
+            '#type': textfield
+          country_identification_code_01:
+            '#title': CountryIdentificationCode
+            '#type': textfield
+      telephone_subscriber_identifier:
+        '#title': Telefonnummer
+        '#type': textfield
+    disability_illness_condition:
+      '#title': 'Betydelig/varig nedsat funktionsevne eller indgribende kronisk/langvarig/uhelbredelig lidelse.'
+      '#type': webform_section
+      short_description:
+        '#title': 'Kort beskrivelse'
+        '#type': textfield
+      attachment:
+        '#title': 'Vedlagt beskrivelse'
+        '#type': textfield
+    practitioner:
+      '#title': 'Læges navn og adresse'
+      '#type': webform_section
+      provider_number:
+        '#title': Ydernummer
+        '#type': textfield
+      practitioner_contact_information:
+        '#title': 'Kontaktoplysninger på en læge'
+        '#type': webform_section
+        person_name_structure_01:
+          '#title': Navn
+          '#type': webform_section
+          person_given_name_01:
+            '#title': PersonGivenName
+            '#type': textfield
+          person_middle_name_01:
+            '#title': PersonMiddleName
+            '#type': textfield
+          person_surname_name_01:
+            '#title': PersonSurnameName
+            '#type': textfield
+        address_02:
+          '#title': Adresse
+          '#type': webform_section
+          simple_address_02:
+            '#title': 'Simpel adresse'
+            '#type': textfield
+          address_postal_02:
+            '#title': 'Udvidet adresse'
+            '#type': webform_section
+            mail_delivery_sublocation_identifier_02:
+              '#title': MailDeliverySublocationIdentifier
+              '#type': textfield
+            street_name_02:
+              '#title': StreetName
+              '#type': textfield
+            street_name_for_addressing_name_02:
+              '#title': StreetNameForAddressingName
+              '#type': textfield
+            street_building_identifier_02:
+              '#title': StreetBuildingIdentifier
+              '#type': textfield
+            floor_identifier_02:
+              '#title': FloorIdentifier
+              '#type': textfield
+            suite_identifier_02:
+              '#title': SuiteIdentifier
+              '#type': textfield
+            district_subdivision_identifier_02:
+              '#title': DistrictSubdivisionIdentifier
+              '#type': textfield
+            post_office_box_identifier_02:
+              '#title': PostOfficeBoxIdentifier
+              '#type': textfield
+            post_code_identifier_02:
+              '#title': PostCodeIdentifier
+              '#type': textfield
+            district_name_02:
+              '#title': DistrictName
+              '#type': textfield
+            country_identification_code_02:
+              '#title': CountryIdentificationCode
+              '#type': textfield
+  care_applicant_information:
+    '#title': |-
+      Oplysninger om ansøgeren
+      Pasningen kan deles mellem flere personer. Alle personer, der deles om pasningen, skal udfylde en ansøgning
+    '#type': webform_section
+    applicant:
+      '#title': Ansøger
+      '#type': webform_section
+      simple_cpr_person_01:
+        '#title': 'Simpel CPR-person'
+        '#type': webform_section
+        person_name_structure_02:
+          '#title': PersonNameStructure
+          '#type': webform_section
+          person_given_name_02:
+            '#title': PersonGivenName
+            '#type': textfield
+          person_middle_name_02:
+            '#title': PersonMiddleName
+            '#type': textfield
+          person_surname_name_02:
+            '#title': PersonSurnameName
+            '#type': textfield
+        person_civil_registration_identifier_01:
+          '#title': PersonCivilRegistrationIdentifier
+          '#type': textfield
+      address_03:
+        '#title': Adresse
+        '#type': webform_section
+        simple_address_03:
+          '#title': 'Simpel adresse'
+          '#type': textfield
+        address_postal_03:
+          '#title': 'Udvidet adresse'
+          '#type': webform_section
+          mail_delivery_sublocation_identifier_03:
+            '#title': MailDeliverySublocationIdentifier
+            '#type': textfield
+          street_name_03:
+            '#title': StreetName
+            '#type': textfield
+          street_name_for_addressing_name_03:
+            '#title': StreetNameForAddressingName
+            '#type': textfield
+          street_building_identifier_03:
+            '#title': StreetBuildingIdentifier
+            '#type': textfield
+          floor_identifier_03:
+            '#title': FloorIdentifier
+            '#type': textfield
+          suite_identifier_03:
+            '#title': SuiteIdentifier
+            '#type': textfield
+          district_subdivision_identifier_03:
+            '#title': DistrictSubdivisionIdentifier
+            '#type': textfield
+          post_office_box_identifier_03:
+            '#title': PostOfficeBoxIdentifier
+            '#type': textfield
+          post_code_identifier_03:
+            '#title': PostCodeIdentifier
+            '#type': textfield
+          district_name_03:
+            '#title': DistrictName
+            '#type': textfield
+          country_identification_code_03:
+            '#title': CountryIdentificationCode
+            '#type': textfield
+      telephone_subscriber_identifier_01:
+        '#title': Telefonnummer
+        '#type': textfield
+    bank_account:
+      '#title': BankAccount
+      '#type': webform_section
+      bank_name:
+        '#title': 'Bankens navn'
+        '#type': textfield
+      bank_registration_number:
+        '#title': Registreringsnummer
+        '#type': textfield
+      bank_account_number:
+        '#title': Kontonummer
+        '#type': textfield
+      bank_department_name:
+        '#title': 'Pengeinstituttets afdeling'
+        '#type': textfield
+    pension_scheme_information:
+      '#title': 'Oplysninger om ansøgers pensionsordning'
+      '#type': webform_section
+      doesnt_have_pension_scheme:
+        '#title': 'Ansøgeren har ikke en pensionsordning'
+        '#type': textfield
+      pension_fund_information:
+        '#title': 'Oplysninger om ansøgers pensionskasse'
+        '#type': webform_section
+        pension_fund:
+          '#title': Pensionskasse
+          '#type': textfield
+        pension_fund_department:
+          '#title': 'Afdeling i pensionskasse.'
+          '#type': textfield
+    labour_market_attachment:
+      '#title': 'Tilknytning til arbejdsmarked'
+      '#type': textfield
+    employer_name:
+      '#title': 'Oplys arbejdsgiver/egen virksomhed - navn'
+      '#type': textfield
+  period:
+    '#title': |-
+      Perioder
+      Der søges om pasning af ovenstående pasningsmodtager i følgende periode
+      Der er mulighed for at opdele pasningen i perioder på 1 måneds varighed. Det er også muligt at opdele pasningen i kortere perioder, men kun efter aftale med din arbejdsgiver. Hvis du ønsker at opdele pasningen i perioder, så angives perioderne her. Hvis du har en aftale med din arbejdsgiver om opdeling af pasningen i kortere perioder skal aftalen sendes til kommunen snarest muligt.
+      Du bør være opmærksom på bestemmelserne om ret til orlov fra arbejde. Vær særlig opmærksom på kravet om varsling af arbejdsgiver.
+    '#type': webform_section
+    from_date:
+      '#title': 'Fra dato'
+      '#type': textfield
+    to_date:
+      '#title': 'Til dato'
+      '#type': textfield
+  care_recipient_declaration:
+    '#title': 'Samtykke, erklæring og underskrift – Pasningsmodtager'
+    '#type': webform_section
+    care_recipient_consent:
+      '#title': |-
+        Samtykke til indhentning af oplysninger hos pasningsmodtagers læge om pasningsmodtagers helbredsmæssige forhold, der er beskrevet ovenfor.
+        Jeg giver hermed mit samtykke til, at kommunen kan indhente oplysninger hos min læge om de helbredsmæssige forhold, der er beskrevet ovenfor.
+        Jeg ønsker ikke at give kommunen mit samtykke til at indhente yderligere oplysninger om mine helbredsforhold. Jeg er indforstået med, at ansøgningen dermed behandles på basis af de her foreliggende oplysninger.
+      '#type': webform_section
+      consent_status:
+        '#title': ConsentStatus
+        '#type': textfield
+    care_recipient_statement:
+      '#title': 'Jeg er vidende om mine pligter og rettigheder med hensyn til samtykke, oplysningspligt mv. Jeg er indforstået med pasningsforholdet.'
+      '#type': webform_section
+      date:
+        '#title': Dato
+        '#type': textfield
+      signature:
+        '#title': Underskrift
+        '#type': webform_section
+        signed_info:
+          '#title': SignedInfo
+          '#type': webform_section
+          canonicalization_method:
+            '#title': CanonicalizationMethod
+            '#type': webform_section
+          signature_method:
+            '#title': SignatureMethod
+            '#type': webform_section
+            hmac_output_length:
+              '#title': HMACOutputLength
+              '#type': textfield
+          reference:
+            '#title': Reference
+            '#type': webform_section
+            transforms:
+              '#title': Transforms
+              '#type': webform_section
+              transform:
+                '#title': Transform
+                '#type': webform_section
+                x_path:
+                  '#title': XPath
+                  '#type': textfield
+            digest_method:
+              '#title': DigestMethod
+              '#type': webform_section
+            digest_value:
+              '#title': DigestValue
+              '#type': textfield
+        signature_value:
+          '#title': SignatureValue
+          '#type': textfield
+        key_info:
+          '#title': KeyInfo
+          '#type': webform_section
+          key_name:
+            '#title': KeyName
+            '#type': textfield
+          key_value:
+            '#title': KeyValue
+            '#type': webform_section
+            dsa_key_value:
+              '#title': DSAKeyValue
+              '#type': webform_section
+              p:
+                '#title': P
+                '#type': textfield
+              q:
+                '#title': Q
+                '#type': textfield
+              g:
+                '#title': G
+                '#type': textfield
+              'y':
+                '#title': 'Y'
+                '#type': textfield
+              j:
+                '#title': J
+                '#type': textfield
+              seed:
+                '#title': Seed
+                '#type': textfield
+              pgen_counter:
+                '#title': PgenCounter
+                '#type': textfield
+            rsa_key_value:
+              '#title': RSAKeyValue
+              '#type': webform_section
+              modulus:
+                '#title': Modulus
+                '#type': textfield
+              exponent:
+                '#title': Exponent
+                '#type': textfield
+          retrieval_method:
+            '#title': RetrievalMethod
+            '#type': webform_section
+            transforms_01:
+              '#title': Transforms
+              '#type': webform_section
+              transform_01:
+                '#title': Transform
+                '#type': webform_section
+                x_path_01:
+                  '#title': XPath
+                  '#type': textfield
+          x509_data:
+            '#title': X509Data
+            '#type': webform_section
+            x509_issuer_serial:
+              '#title': X509IssuerSerial
+              '#type': webform_section
+              x509_issuer_name:
+                '#title': X509IssuerName
+                '#type': textfield
+              x509_serial_number:
+                '#title': X509SerialNumber
+                '#type': textfield
+            x509_ski:
+              '#title': X509SKI
+              '#type': textfield
+            x509_subject_name:
+              '#title': X509SubjectName
+              '#type': textfield
+            x509_certificate:
+              '#title': X509Certificate
+              '#type': textfield
+            x509_crl:
+              '#title': X509CRL
+              '#type': textfield
+          pgp_data:
+            '#title': PGPData
+            '#type': webform_section
+            pgp_key_id:
+              '#title': PGPKeyID
+              '#type': textfield
+            pgp_key_packet:
+              '#title': PGPKeyPacket
+              '#type': textfield
+            pgp_key_packet_01:
+              '#title': PGPKeyPacket
+              '#type': textfield
+          spki_data:
+            '#title': SPKIData
+            '#type': webform_section
+            spki_sexp:
+              '#title': SPKISexp
+              '#type': textfield
+          mgmt_data:
+            '#title': MgmtData
+            '#type': textfield
+        object:
+          '#title': Object
+          '#type': webform_section
+  applicant_statement:
+    '#title': |-
+      Erklæring og underskrift – Ansøger
+      Jeg kender mine rettigheder og pligter som angivet i afsnittet om behandling af personoplysninger.
+      Rettigheder og pligter i forbindelse med kommunens behandling af personoplysninger.
+    '#type': webform_section
+    date_01:
+      '#title': Dato
+      '#type': textfield
+    signature_01:
+      '#title': Underskrift
+      '#type': webform_section
+      signed_info_01:
+        '#title': SignedInfo
+        '#type': webform_section
+        canonicalization_method_01:
+          '#title': CanonicalizationMethod
+          '#type': webform_section
+        signature_method_01:
+          '#title': SignatureMethod
+          '#type': webform_section
+          hmac_output_length_01:
+            '#title': HMACOutputLength
+            '#type': textfield
+        reference_01:
+          '#title': Reference
+          '#type': webform_section
+          transforms_02:
+            '#title': Transforms
+            '#type': webform_section
+            transform_02:
+              '#title': Transform
+              '#type': webform_section
+              x_path_02:
+                '#title': XPath
+                '#type': textfield
+          digest_method_01:
+            '#title': DigestMethod
+            '#type': webform_section
+          digest_value_01:
+            '#title': DigestValue
+            '#type': textfield
+      signature_value_01:
+        '#title': SignatureValue
+        '#type': textfield
+      key_info_01:
+        '#title': KeyInfo
+        '#type': webform_section
+        key_name_01:
+          '#title': KeyName
+          '#type': textfield
+        key_value_01:
+          '#title': KeyValue
+          '#type': webform_section
+          dsa_key_value_01:
+            '#title': DSAKeyValue
+            '#type': webform_section
+            p_01:
+              '#title': P
+              '#type': textfield
+            q_01:
+              '#title': Q
+              '#type': textfield
+            g_01:
+              '#title': G
+              '#type': textfield
+            y_01:
+              '#title': 'Y'
+              '#type': textfield
+            j_01:
+              '#title': J
+              '#type': textfield
+            seed_01:
+              '#title': Seed
+              '#type': textfield
+            pgen_counter_01:
+              '#title': PgenCounter
+              '#type': textfield
+          rsa_key_value_01:
+            '#title': RSAKeyValue
+            '#type': webform_section
+            modulus_01:
+              '#title': Modulus
+              '#type': textfield
+            exponent_01:
+              '#title': Exponent
+              '#type': textfield
+        retrieval_method_01:
+          '#title': RetrievalMethod
+          '#type': webform_section
+          transforms_03:
+            '#title': Transforms
+            '#type': webform_section
+            transform_03:
+              '#title': Transform
+              '#type': webform_section
+              x_path_03:
+                '#title': XPath
+                '#type': textfield
+        x509_data_01:
+          '#title': X509Data
+          '#type': webform_section
+          x509_issuer_serial_01:
+            '#title': X509IssuerSerial
+            '#type': webform_section
+            x509_issuer_name_01:
+              '#title': X509IssuerName
+              '#type': textfield
+            x509_serial_number_01:
+              '#title': X509SerialNumber
+              '#type': textfield
+          x509_ski_01:
+            '#title': X509SKI
+            '#type': textfield
+          x509_subject_name_01:
+            '#title': X509SubjectName
+            '#type': textfield
+          x509_certificate_01:
+            '#title': X509Certificate
+            '#type': textfield
+          x509_crl_01:
+            '#title': X509CRL
+            '#type': textfield
+        pgp_data_01:
+          '#title': PGPData
+          '#type': webform_section
+          pgp_key_id_01:
+            '#title': PGPKeyID
+            '#type': textfield
+          pgp_key_packet_02:
+            '#title': PGPKeyPacket
+            '#type': textfield
+          pgp_key_packet_03:
+            '#title': PGPKeyPacket
+            '#type': textfield
+        spki_data_01:
+          '#title': SPKIData
+          '#type': webform_section
+          spki_sexp_01:
+            '#title': SPKISexp
+            '#type': textfield
+        mgmt_data_01:
+          '#title': MgmtData
+          '#type': textfield
+      object_01:
+        '#title': Object
+        '#type': webform_section

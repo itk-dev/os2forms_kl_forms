@@ -1,0 +1,9 @@
+name: KL forms
+description: KL forms
+package: OS2Forms
+
+type: module
+core_version_requirement: ^9
+
+dependencies:
+  - drupal:os2forms

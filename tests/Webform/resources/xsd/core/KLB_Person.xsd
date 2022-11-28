@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:itst="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/"
+	xmlns:cpr="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/"
+	xmlns:cc="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="KLB_Address.xsd"/>
+	
+	<xsd:import namespace="http://rep.oio.dk/cpr.dk/xml/schemas/core/2006/01/17/" schemaLocation="../imports/cpr/CPR_SimpleCPRPerson.xsd"/>
+	<xsd:import namespace="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" schemaLocation="../imports/cc/CC_TelephoneSubscriberIdentifier.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Person</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="Person" type="klb:PersonType"/>
+	<xsd:complexType name="PersonType">
+		<xsd:sequence>
+			<xsd:element ref="cpr:SimpleCPRPerson">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="da">Simpel CPR-person</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="klb:Address">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="da">Adresse</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="cc:TelephoneSubscriberIdentifier" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="da">Telefonnummer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:element name="TaxCardType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="da">Skattekorttype</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:enumeration value="Hovedkort">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Hovedkort</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Bikort">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Bikort</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+				<xsd:enumeration value="Frikort">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="da">Frikort</xsd:documentation>
+					</xsd:annotation>
+				</xsd:enumeration>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

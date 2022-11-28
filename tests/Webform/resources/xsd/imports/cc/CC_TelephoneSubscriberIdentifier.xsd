@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cc="http://rep.oio.dk/ebxml/xml/schemas/cc/2003/02/17/" xmlns:cct="urn:oasis:names:tc:ubl:CoreComponentTypes:1.0:0.70" elementFormDefault="qualified">
+  <import namespace="urn:oasis:names:tc:ubl:CoreComponentTypes:1.0:0.70" schemaLocation="CC_CoreComponentTypes.xsd" />
+  <element name="TelephoneSubscriberIdentifier" type="cc:TelephoneSubscriberIdentifierType" id="CC59">
+    <annotation>
+      <documentation>
+        <BasicOrAggregate>Basic</BasicOrAggregate>
+        <Definition>The telephone identifier for a subscriber within a geographical area. </Definition>
+        <Remarks>Telephone subscriber</Remarks>
+      </documentation>
+    </annotation>
+  </element>
+  <complexType name="TelephoneSubscriberIdentifierType">
+    <simpleContent>
+      <extension base="cct:IdentifierType" />
+    </simpleContent>
+  </complexType>
+</schema>

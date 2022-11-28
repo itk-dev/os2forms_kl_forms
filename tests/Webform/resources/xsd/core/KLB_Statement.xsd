@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:klb="https://klxml.dk/KLB/xml/schemas/"
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	targetNamespace="https://klxml.dk/KLB/xml/schemas/" elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="../imports/ds/DS_xmldsig-core-schema.xsd"/>
+	
+	<xsd:annotation>
+		<xsd:documentation xml:lang="da">Erklæring</xsd:documentation>
+	</xsd:annotation>
+		
+	<xsd:element name="Statement" type="klb:StatementType"/>
+	<xsd:complexType name="StatementType">
+		<xsd:sequence>
+			<xsd:element name="Date" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="da">Dato</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ds:Signature">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="da">Underskrift</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
